@@ -3,12 +3,15 @@ package com.janjira.happynumber;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import org.apache.log4j.Logger;
+
 
 public class NumberValidation {
-	
+	final static Logger logger = Logger.getLogger(NumberValidation.class);
 	private ArrayList<Integer> happyList = new ArrayList<Integer>();
 	private ArrayList<Integer> sadList = new ArrayList<Integer>();
 
+	
 
 	public void validateNumbers() {
 		for (int i = 1; i <= 1000; i++) {
@@ -18,8 +21,8 @@ public class NumberValidation {
 				sadList = addSadNumberInList(i);	
 			}
 		}
-		System.out.println("The Happy number are " + happyList.size() + " numbers =>" + happyList);
-		System.out.println("The Unhappy number are " + sadList.size() + " numbers =>" + sadList);
+		logger.info("The Happy numbers are " + happyList.size() + " numbers =>" + happyList);
+		logger.info("The Sad numbers are " + sadList.size() + " numbers =>" + sadList);
 	}
 
 	private ArrayList<Integer> addSadNumberInList(int i) {
